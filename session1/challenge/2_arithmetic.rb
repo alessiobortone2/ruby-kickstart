@@ -9,4 +9,7 @@
 # arithmetic2(-6, -7)  # => -3.5
 
 def arithmetic2(a, b)
+  c = [a, b].min
+  d = c.to_f/2
+  return d
 end
