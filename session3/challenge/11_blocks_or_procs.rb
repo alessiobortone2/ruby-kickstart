@@ -30,5 +30,22 @@
 # end
 
 
-def array_init
+def array_init(n=5, &block)   # solve the optional argument issue
+#  arr1 = Array.new(n)
+#  arr2 = arr1.map.with_index { |e, i| i.to_s }
+
+# (0..n).times { |i| arr1[i] = i.to_s } # will's solution
+# arr2 = arr1.each_with_index { |index| index.to_s } # Olivia's solution
+
+# if block
+#    arr2.map { |e| block }
+#  else
+#    arr2.map!.with_index { |e, i| (i * 100).to_s }
+#  end
+#  return arr2
+# end
+
+block ||= Proc.new { |i| (100 * i).to_s }
+Array.new(n, &block)
+
 end
