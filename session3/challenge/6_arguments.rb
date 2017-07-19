@@ -17,3 +17,24 @@
 # match_maker true,  true,  true, true, nil     # => [false, true]
 # match_maker true,  true,  true, 0, nil        # => [false, true]
 
+# didn't understand the spec - need to revise
+
+def match_maker(opposites_attract, *elements)
+  to_return = []
+  elements.each_slice 2 do |first, last|
+    first  = !!first
+    last   = !!last
+    result = if opposites_attract
+               first != last
+             else
+               first == last
+             end
+    to_return << result
+  end
+  puts to_return
+end
+
+
+match_maker(true, false, false, true, false, true)
+
+# with each_slice with parameter 2 you don't need to run additional checks to see if you have pairs of arguments 
